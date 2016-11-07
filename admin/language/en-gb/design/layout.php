@@ -15,6 +15,20 @@ $_['text_content_top']    = 'Content Top';
 $_['text_content_bottom'] = 'Content Bottom';
 $_['text_column_left']    = 'Column Left';
 $_['text_column_right']   = 'Column Right';
+$_['text_content_block']    = 'Content Block';
+$_['text_content_block1']    = 'Content Block1';
+$_['text_content_block2']    = 'Content Block2';
+$_['text_content_block3']    = 'Content Block3';
+$_['text_content_block4']    = 'Content Block4';
+$_['text_content_block5']    = 'Content Block5';
+$_['text_content_block6']    = 'Content Block6';
+$_['text_content_block7']    = 'Content Block7';
+$_['text_content_block8']    = 'Content Block8';
+$_['text_content_block9']    = 'Content Block9';
+$_['text_content_block10']    = 'Content Block10';
+$_['text_content_banner']    = 'Content Banner';
+$_['text_top_banner']    = 'Top Banner';
+$_['text_top_banner1']    = 'Top Banner1';
 
 // Column
 $_['column_name']         = 'Layout Name';

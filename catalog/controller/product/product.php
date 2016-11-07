@@ -256,6 +256,7 @@ class ControllerProductProduct extends Controller {
 			$data['button_compare'] = $this->language->get('button_compare');
 			$data['button_upload'] = $this->language->get('button_upload');
 			$data['button_continue'] = $this->language->get('button_continue');
+			$data['shortdescription']  = utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, 600) . '...';
 
 			$this->load->model('catalog/review');
 

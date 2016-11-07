@@ -5,14 +5,14 @@ class ControllerExtensionModuleCarousel extends Controller {
 
 		$this->load->model('design/banner');
 		$this->load->model('tool/image');
-
+		$this->load->language('extension/module/carousel');
 		$this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
 		$this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
 
 		$data['banners'] = array();
 
 		$results = $this->model_design_banner->getBanner($setting['banner_id']);
-
+		$data['title_brand'] = $this->language->get('title_brand');
 		foreach ($results as $result) {
 			if (is_file(DIR_IMAGE . $result['image'])) {
 				$data['banners'][] = array(

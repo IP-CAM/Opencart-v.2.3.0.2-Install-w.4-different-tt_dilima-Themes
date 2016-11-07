@@ -209,10 +209,32 @@ class ControllerProductCategory extends Controller {
 				} else {
 					$rating = false;
 				}
+				
+				/* Product Rotator */
+				$product_rotator_status = (int) $this->config->get('ocproductrotator_status');
+				if($product_rotator_status == 1) {
+					$this->load->model('catalog/ocproductrotator');
+					$this->load->model('tool/image');
+
+					$product_id = $result['product_id'];
+					$product_rotator_image = $this->model_catalog_ocproductrotator->getProductRotatorImage($product_id);
+
+					if($product_rotator_image) {
+						$rotator_image_width = 500;
+						$rotator_image_height = 500;
+						$rotator_image = $this->model_tool_image->resize($product_rotator_image, $rotator_image_width, $rotator_image_height);	
+					} else {
+						$rotator_image = false;
+					}	
+				} else {
+					$rotator_image = false;				
+				}
+				/* End Product Rotator */
 
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
+					'rotator_image' => $rotator_image,
 					'name'        => $result['name'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
